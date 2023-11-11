@@ -3,14 +3,14 @@ import 'package:notes_app/constants.dart';
 
 class CustomTextField extends StatelessWidget {
   final String hintText;
-
-
+  final void Function(String)? onChanged;
+ 
   final int maxLines;
   final void Function(String?)? onSaved;
   const CustomTextField({
     super.key,
     this.maxLines = 1,
-
+    this.onChanged,
     required this.hintText,
     this.onSaved,
   });
@@ -20,7 +20,9 @@ class CustomTextField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: TextFormField(
         //The advantage of onSave is that it called after the validation 
+       
         onSaved: onSaved,
+        onChanged:onChanged ,
         validator: (value) {
           if (value != null && value.isNotEmpty) {
             return null;

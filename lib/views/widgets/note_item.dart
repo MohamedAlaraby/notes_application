@@ -15,6 +15,7 @@ class NoteItem extends StatelessWidget {
         Navigator.pushNamed(
           context,
           EditNoteView.id,
+          arguments: noteModel,
         );
       },
       child: Container(
@@ -24,7 +25,7 @@ class NoteItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Color(noteModel.color),
+          color: Color(noteModel.color!),
         ),
         child: Column(
           children: [
@@ -32,13 +33,13 @@ class NoteItem extends StatelessWidget {
               title: Text(
                 noteModel.title,
                 style: const TextStyle(
-                  fontSize: 24,
+                  fontSize: 20,
                   color: Colors.black,
                 ),
               ),
               subtitle: Text(noteModel.subTitle,
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                     color: Colors.black.withAlpha(450),
                   )),
               trailing: IconButton(
