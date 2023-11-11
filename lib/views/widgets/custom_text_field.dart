@@ -3,14 +3,14 @@ import 'package:notes_app/constants.dart';
 
 class CustomTextField extends StatelessWidget {
   final String hintText;
-  final TextEditingController controller;
+
 
   final int maxLines;
   final void Function(String?)? onSaved;
   const CustomTextField({
     super.key,
     this.maxLines = 1,
-    required this.controller,
+
     required this.hintText,
     this.onSaved,
   });
@@ -28,7 +28,7 @@ class CustomTextField extends StatelessWidget {
             return "Please fill this field";
           }
         },
-        controller: controller,
+
         cursorColor: kPrimaryColor,
         maxLines: maxLines,
         decoration: InputDecoration(

@@ -21,8 +21,7 @@ class EditNoteFormBody extends StatefulWidget {
 }
 
 class _EditNoteFormBodyState extends State<EditNoteFormBody> {
-  final TextEditingController titleController = TextEditingController();
-  final TextEditingController descController = TextEditingController();
+
   final AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
   final GlobalKey<FormState> formKey = GlobalKey();
   String? title, subTitle;
@@ -52,7 +51,7 @@ class _EditNoteFormBodyState extends State<EditNoteFormBody> {
             onSaved: (text) {
               title = text;
             },
-            controller: titleController,
+     
             hintText: "Title",
           ),
           const SizedBox(
@@ -62,7 +61,7 @@ class _EditNoteFormBodyState extends State<EditNoteFormBody> {
             onSaved: (text) {
               subTitle=text;
             },
-            controller: descController,
+           
             hintText: "Description",
             maxLines: 5,
           ),
