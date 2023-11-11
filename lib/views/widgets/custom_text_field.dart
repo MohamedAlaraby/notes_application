@@ -4,20 +4,30 @@ import 'package:notes_app/constants.dart';
 class CustomTextField extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
-  
-   final int maxLines;
 
+  final int maxLines;
+  final void Function(String?)? onSaved;
   const CustomTextField({
     super.key,
-     this.maxLines=1,
+    this.maxLines = 1,
     required this.controller,
     required this.hintText,
+    this.onSaved,
   });
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: TextField(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: TextFormField(
+        //The advantage of onSave is that it called after the validation 
+        onSaved: onSaved,
+        validator: (value) {
+          if (value != null && value.isNotEmpty) {
+            return null;
+          } else {
+            return "Please fill this field";
+          }
+        },
         controller: controller,
         cursorColor: kPrimaryColor,
         maxLines: maxLines,
